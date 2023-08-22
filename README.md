@@ -4,13 +4,13 @@
 - boleh feedback jika ada masalah ( masalah script saja saya layan)
 - masalah tak tau install tak tau subdomain tu apa atau masalah kecik2 maaf saya tak dak masa layan
 - saya dah guna di vps digital ocean / linode / shinjiru / myklnet / ovh dan tak masalah apa2.
-- sila training banyak2 kali install script ctech smpai pandai https://t.me/+TfT_DO4Q8LdlMTY1 kemudian baru install script ni sbb kat sana ramai cikgu baik2
+- sila training banyak2 kali install script...
 - enjoy jelah tak suka abaikan...
 
 # FIX SCRIPT
 - backup script issue fix
                                            
-<h2 align="center"> Autoscript by HazzuanHashim</h2>
+<h2 align="center"> Autoscript by akubudakgerik</h2>
 
 <h2 align="center"> Supported Linux Distribution</h2>
 <p align="center"><img src="https://linuxconfig.org/wp-content/uploads/2018/05/debian_vs_ubuntu.png"></p>
@@ -36,7 +36,7 @@ src="https://img.shields.io/badge/Service-Xray-success.svg">  <img src= "https:/
 ## INSTALLATION SCRIPT
 
   ```html
-  sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/Hazzuan1984/t-code/main/setup2.sh && chmod +x setup2.sh && sed -i -e 's/\r$//' setup2.sh && screen -S setup2 ./setup2.sh
+  sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/akubudakgerik68/t-code/main/setup2.sh && chmod +x setup2.sh && sed -i -e 's/\r$//' setup2.sh && screen -S setup2 ./setup2.sh
   ```
  
  ## Copy & paste 👇👇 to your VPS if ERROR (WG ONLY)
@@ -59,10 +59,10 @@ systemctl restart wg-quick@wg0
  ## Script FREE using license key 
 
    ```html
-  comingsoonFreeAutoscripts
+  premium
   ```
  
-Feedback to owner on Telegram hazzuan <a href="https://t.me/HazzuanHashim" target=”_blank”><img src="https://img.shields.io/static/v1?style=for-the-badge&logo=Telegram&label=Telegram&message=Click%20Here&color=blue"></a> to fix BUG (slow respond)
+Feedback to owner on Telegram rjalil68 <a href="https://t.me/akubudakgerik" target=”_blank”><img src="https://img.shields.io/static/v1?style=for-the-badge&logo=Telegram&label=Telegram&message=Click%20Here&color=blue"></a> to fix BUG (slow respond)
 
 # Description :
 
@@ -113,13 +113,10 @@ Feedback to owner on Telegram hazzuan <a href="https://t.me/HazzuanHashim" targe
 
 ## Credit :
 
-*   Hazzuan
-*   Vinstechmy
-*   V-code
-*   ꜱᴀᴍꜱꜰx
+*   akubudakgerik68
 
 
 <p align="center">
-  <a><img src="https://img.shields.io/badge/Copyright%20©-HazzuanHashim%20AutoScriptVPN%202022.%20All%20rights%20reserved...-blueviolet.svg" style="max-width:200%;">
+  <a><img src="https://img.shields.io/badge/Copyright%20©-akubudakgerik%20AutoScriptVPN%202023.%20All%20rights%20reserved...-blueviolet.svg" style="max-width:200%;">
     </p>
    </p>
