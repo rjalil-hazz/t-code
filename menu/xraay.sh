@@ -1,7 +1,7 @@
 #!/bin/bash
 #Script Auto Reboot Vps
 #wget https://github.com/${GitUser}/
-GitUser="Hazzuan1984"
+GitUser="akubudakgerik68"
 #IZIN SCRIPT
 MYIP=$(curl -sS ipv4.icanhazip.com)
 # PROVIDED
@@ -23,7 +23,7 @@ number=$(cat /etc/number)
 # TOTAL ACC CREATE VMESS WS
 total1=$(grep -c -E "^### " "/usr/local/etc/xray/config.json")
 # TOTAL ACC CREATE  VLESS WS
-total2=$(grep -c -E "^### " "/usr/local/etc/xray/vless.json")
+total2=$(grep -c -E "^### " "/usr/local/etc/xray/budakgerik-vless.json")
 # TOTAL ACC CREATE  XRAY VLESS XTLS
 total3=$(grep -c -E "^### " "/usr/local/etc/xray/xtls.json")
 MYIP=$(wget -qO- ifconfig.me/ip);
@@ -52,7 +52,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 			exit 1
 		fi
 	done
-patch=/vmess
+patch=/budakgerik-vmess
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "   Bug Address (Example: www.google.com) : " address
 read -p "   Bug SNI/Host (Example : m.facebook.com) : " sni
@@ -294,7 +294,7 @@ echo -e   "  \e[$back_text            \e[30m[\e[$box CREATE USER XRAY VLESS WS\e
 echo -e   "  \e[$line═══════════════════════════════════════════════════════\e[m"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		read -rp "   Username: " -e user
-		CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/vless.json | wc -l)
+		CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/budakgerik-vless.json | wc -l)
 
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 			echo ""
@@ -302,7 +302,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 			exit 1
 		fi
 	done
-patch=/vless
+patch=/budakgerik-vless
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "   Bug Address (Example: www.google.com) : " address
 read -p "   Bug SNI/Host (Example : m.facebook.com) : " sni
@@ -317,7 +317,7 @@ fi
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 harini=`date -d "0 days" +"%Y-%m-%d"`
 sed -i '/#tls$/a\### '"$user $exp $harini $uuid"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/vless.json
+},{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/budakgerik-vless.json
 sed -i '/#none$/a\### '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/vnone.json
 
@@ -559,7 +559,7 @@ echo " =========================="
 
 function menu7 () {
 clear
-NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/vless.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/budakgerik-vless.json")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		echo ""
 		echo "You have no existing clients!"
@@ -572,7 +572,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/vless.json")
 	echo " Press CTRL+C to return"
 	echo " ==============================="
 	echo "     No  Expired   User"
-	grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 2-3 | nl -s ') '
+	grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
 			read -rp "Select one client [1]: " CLIENT_NUMBER
@@ -580,11 +580,11 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/vless.json")
 			read -rp "Select one client [1-${NUMBER_OF_CLIENTS}]: " CLIENT_NUMBER
 		fi
 	done
-harini=$(grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
-uuid=$(grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
-user=$(grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
-exp=$(grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
-sed -i "/^### $user $exp $harini $uuid/,/^},{/d" /usr/local/etc/xray/vless.json
+harini=$(grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
+user=$(grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
+exp=$(grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
+sed -i "/^### $user $exp $harini $uuid/,/^},{/d" /usr/local/etc/xray/budakgerik-vless.json
 sed -i "/^### $user $exp $harini $uuid/,/^},{/d" /usr/local/etc/xray/vnone.json
 rm -f /usr/local/etc/xray/$user-VLESS-WS.yaml
 rm -f /home/vps/public_html/$user-VLESS-WS.yaml
@@ -685,7 +685,7 @@ echo " =========================="
 
 function menu8 () {
 clear
-NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/vless.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/budakgerik-vless.json")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		clear
 		echo ""
@@ -698,7 +698,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/vless.json")
 	echo "Select the existing client you want to renew"
 	echo " Press CTRL+C to return"
 	echo -e "==============================="
-	grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 2-3 | nl -s ') '
+	grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
 			read -rp "Select one client [1]: " CLIENT_NUMBER
@@ -707,17 +707,17 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/vless.json")
 		fi
 	done
 read -p "Expired (days): " masaaktif
-harini=$(grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
-uuid=$(grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
-user=$(grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
-exp=$(grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
+harini=$(grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
+user=$(grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
+exp=$(grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 now=$(date +%Y-%m-%d)
 d1=$(date -d "$exp" +%s)
 d2=$(date -d "$now" +%s)
 exp2=$(( (d1 - d2) / 86400 ))
 exp3=$(($exp2 + $masaaktif))
 exp4=`date -d "$exp3 days" +"%Y-%m-%d"`
-sed -i "s/### $user $exp $harini $uuid/### $user $exp4 $harini $uuid/g" /usr/local/etc/xray/vless.json
+sed -i "s/### $user $exp $harini $uuid/### $user $exp4 $harini $uuid/g" /usr/local/etc/xray/budakgerik-vless.json
 sed -i "s/### $user $exp $harini $uuid/### $user $exp4 $harini $uuid/g" /usr/local/etc/xray/vnone.json
 service cron restart
 clear
@@ -801,7 +801,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/config.json")
 			read -rp "Select one client [1-${NUMBER_OF_CLIENTS}]: " CLIENT_NUMBER
 		fi
 	done
-patch=/vmess
+patch=/budakgerik-vmess
 user=$(grep -E "^### " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 harini=$(grep -E "^### " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^### " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
@@ -1024,7 +1024,7 @@ function menu9 () {
 clear
 tls="$(cat ~/log-install.txt | grep -w "Vless Ws Tls" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vless Ws None Tls" | cut -d: -f2|sed 's/ //g')"
-NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/vless.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/budakgerik-vless.json")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		clear
 		echo ""
@@ -1038,7 +1038,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/vless.json")
 	echo "Select the existing client you want to renew"
 	echo " Press CTRL+C to return"
 	echo -e "==============================="
-	grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 2-3 | nl -s ') '
+	grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
 			read -rp "Select one client [1]: " CLIENT_NUMBER
@@ -1046,11 +1046,11 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/etc/xray/vless.json")
 			read -rp "Select one client [1-${NUMBER_OF_CLIENTS}]: " CLIENT_NUMBER
 		fi
 	done
-patch=/vless
-user=$(grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
-harini=$(grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
-exp=$(grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
-uuid=$(grep -E "^### " "/usr/local/etc/xray/vless.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
+patch=/budakgerik-vless
+user=$(grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
+harini=$(grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+exp=$(grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^### " "/usr/local/etc/xray/budakgerik-vless.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
 
 cat > /usr/local/etc/xray/$user-VLESS-WS.yaml <<EOF
 # CONFIG CLASH VLESS
@@ -1281,7 +1281,7 @@ done
 function menu10 () {
 clear
 echo -n > /tmp/other.txt
-data=( `cat /usr/local/etc/xray/vless.json | grep '^###' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `cat /usr/local/etc/xray/budakgerik-vless.json | grep '^###' | cut -d ' ' -f 2 | sort | uniq`);
 echo "-----------------------------------------";
 echo "-----=[ Xray Vless Ws User Login ]=-----";
 echo "-----------------------------------------";
